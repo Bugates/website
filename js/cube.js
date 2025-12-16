@@ -1,41 +1,75 @@
 (function(){
-  const letter = (document.body.dataset.letter || "M").toUpperCase();
+  const letter = (document.body.dataset.letter || "O").toUpperCase();
   const mount = document.getElementById("cubeMount");
   if(!mount) return;
 
-  const COLORS = {
-    base: "#ffffff",
-    letter: "#2563eb"
-  };
+  const BLUE = "#2563eb";
 
   const LETTERS = {
+    O:[
+      1,1,1,1,1,
+      1,0,0,0,1,
+      1,0,0,0,1,
+      1,0,0,0,1,
+      1,1,1,1,1
+    ],
+    S:[
+      1,1,1,1,1,
+      1,0,0,0,0,
+      1,1,1,1,1,
+      0,0,0,0,1,
+      1,1,1,1,1
+    ],
+    F:[
+      1,1,1,1,1,
+      1,0,0,0,0,
+      1,1,1,1,0,
+      1,0,0,0,0,
+      1,0,0,0,0
+    ],
+    E:[
+      1,1,1,1,1,
+      1,0,0,0,0,
+      1,1,1,1,0,
+      1,0,0,0,0,
+      1,1,1,1,1
+    ],
     M:[
       1,0,0,0,1,
       1,1,0,1,1,
       1,0,1,0,1,
       1,0,0,0,1,
       1,0,0,0,1
+    ],
+    P:[
+      1,1,1,1,0,
+      1,0,0,0,1,
+      1,1,1,1,0,
+      1,0,0,0,0,
+      1,0,0,0,0
+    ],
+    B:[
+      1,1,1,1,0,
+      1,0,0,0,1,
+      1,1,1,1,0,
+      1,0,0,0,1,
+      1,1,1,1,0
     ]
   };
 
-  function el(tag, cls){
-    const e=document.createElement(tag);
-    if(cls) e.className=cls;
-    return e;
-  }
+  function el(t,c){const e=document.createElement(t);if(c)e.className=c;return e}
 
   function face(pattern){
     const f=el("div","face");
     for(let i=0;i<25;i++){
       const s=el("div","sticker");
-      if(pattern && pattern[i]) s.style.background=COLORS.letter;
+      if(pattern && pattern[i]) s.style.background=BLUE;
       f.appendChild(s);
     }
     return f;
   }
 
   const cube=el("div","cube spin");
-
   const faces={
     front:face(LETTERS[letter]),
     back:face(),
