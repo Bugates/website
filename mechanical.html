@@ -1,65 +1,56 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PIE Final Website — Mechanical</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mechanical</title>
+  <link rel="stylesheet" href="css/style.css?v=FINAL">
 </head>
 <body data-letter="M">
-  <header class="topbar">
-    <div class="container navwrap" data-nav>
-      <div class="brand"><span class="dot"></span><span>PIE Final — Rubik’s Cube Inspired Site</span></div>
-      <nav class="navlinks">
-        <a href="index.html">Overview</a>
-        <a href="system.html">System</a>
-        <a href="flow.html">Flow</a>
-        <a href="electrical.html">Electrical</a>
-        <a href="mechanical.html">Mechanical</a>
-        <a href="software.html">Software</a>
-        <a href="process.html">Process</a>
-        <a href="budget.html">Budget</a>
-      </nav>
-    </div>
-  </header>
 
-  <div class="container hero">
-    <div class="card headerCard">
-      <div class="hgroup">
-        <h1>Mechanical Design</h1>
-        <p>Human-written overview of mechanical goals, constraints, and final design rationale.</p>
-      </div>
-      <div class="badges"><span class="badge">CAD</span><span class="badge">Prototype</span></div>
-    </div>
-
-    <div class="cubeStage card"><div id="cubeMount"></div></div>
+<header class="topbar">
+  <div class="container navwrap">
+    <div class="brand">PIE Final</div>
+    <nav class="navlinks">
+      <a href="index.html">Overview</a>
+      <a href="system.html">System</a>
+      <a href="flow.html">Flow</a>
+      <a href="electrical.html">Electrical</a>
+      <a class="active" href="mechanical.html">Mechanical</a>
+      <a href="software.html">Software</a>
+      <a href="process.html">Process</a>
+      <a href="budget.html">Budget</a>
+    </nav>
   </div>
+</header>
 
-  <main class="container">
-    <div class="grid">
-      <section class="card section">
-        <h2>CAD Renders / Drawings</h2>
-        <div class="media">
-          <div class="ph">CAD image: <code>assets/cad/render1.png</code></div>
-          <div class="ph">CAD image: <code>assets/cad/render2.png</code></div>
-        </div>
-      </section>
-
-      <section class="card section">
-        <h2>Mechanical Analysis + Trade-offs</h2>
-        <ul>
-          <li>Materials chosen and why (human written)</li>
-          <li>Tolerances/fit issues (human written)</li>
-          <li>Failure modes + what changed (human written)</li>
-          <li>Trade-offs: budget, time, manufacturability (human written)</li>
-        </ul>
-      </section>
+<div class="container hero">
+  <div class="card headerCard">
+    <div class="headingRow">
+      <div class="cubeInline"><div id="cubeMount"></div></div>
+      <h1 class="pageHeading">ECHANICAL</h1>
     </div>
+  </div>
+</div>
 
-    <div class="footer container">Human-written footer.</div>
-  </main>
+<main class="container">
 
-  <script src="js/nav.js"></script>
-  <script src="js/cube.js"></script>
+  <section class="card section">
+    <h2>Mechanical Design Overview</h2>
+  </section>
+
+  <section class="card section">
+    <h2>CAD Images and Renderings</h2>
+  </section>
+
+  <section class="card section">
+    <h2>Mechanical Analysis</h2>
+  </section>
+
+  <div class="footer">PIE Final · Mechanical</div>
+</main>
+
+<script src="js/nav.js"></script>
+<script src="js/cube.js"></script>
 </body>
 </html>

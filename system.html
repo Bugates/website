@@ -1,70 +1,56 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PIE Final Website — System</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>System</title>
+  <link rel="stylesheet" href="css/style.css?v=FINAL">
 </head>
 <body data-letter="S">
-  <header class="topbar">
-    <div class="container navwrap" data-nav>
-      <div class="brand"><span class="dot"></span><span>PIE Final — Rubik’s Cube Inspired Site</span></div>
-      <nav class="navlinks">
-        <a href="index.html">Overview</a>
-        <a href="system.html">System</a>
-        <a href="flow.html">Flow</a>
-        <a href="electrical.html">Electrical</a>
-        <a href="mechanical.html">Mechanical</a>
-        <a href="software.html">Software</a>
-        <a href="process.html">Process</a>
-        <a href="budget.html">Budget</a>
-      </nav>
-    </div>
-  </header>
 
-  <div class="container hero">
-    <div class="card headerCard">
-      <div class="hgroup">
-        <h1>System Architecture</h1>
-        <p>Human-written overview of the full system and how subsystems relate.</p>
-      </div>
-      <div class="badges"><span class="badge">System Diagram</span><span class="badge">Subsystems</span></div>
-    </div>
-
-    <div class="cubeStage card"><div id="cubeMount"></div></div>
+<header class="topbar">
+  <div class="container navwrap">
+    <div class="brand">PIE Final</div>
+    <nav class="navlinks">
+      <a href="index.html">Overview</a>
+      <a class="active" href="system.html">System</a>
+      <a href="flow.html">Flow</a>
+      <a href="electrical.html">Electrical</a>
+      <a href="mechanical.html">Mechanical</a>
+      <a href="software.html">Software</a>
+      <a href="process.html">Process</a>
+      <a href="budget.html">Budget</a>
+    </nav>
   </div>
+</header>
 
-  <main class="container">
-    <div class="grid">
-      <section class="card section">
-        <h2>System Diagram</h2>
-        <p>Insert your system diagram here (image/PDF screenshot).</p>
-        <div class="media">
-          <div class="ph">Diagram image: <code>assets/diagrams/system.png</code></div>
-          <div class="ph">Alternative: whiteboard photo</div>
-        </div>
-      </section>
-
-      <section class="card section">
-        <h2>Subsystems</h2>
-        <ul>
-          <li>Subsystem A: what it does, inputs/outputs (human written)</li>
-          <li>Subsystem B: what it does, inputs/outputs (human written)</li>
-          <li>Subsystem C: what it does, inputs/outputs (human written)</li>
-        </ul>
-      </section>
+<div class="container hero">
+  <div class="card headerCard">
+    <div class="headingRow">
+      <div class="cubeInline"><div id="cubeMount"></div></div>
+      <h1 class="pageHeading">YSTEM</h1>
     </div>
+  </div>
+</div>
 
-    <section class="card section" style="margin-top:14px;">
-      <h2>Interfaces and Relationships</h2>
-      <p>Human-written explanation of connections, protocols, mechanical coupling, and constraints.</p>
-    </section>
+<main class="container">
 
-    <div class="footer container">Human-written footer.</div>
-  </main>
+  <section class="card section">
+    <h2>System Diagram</h2>
+  </section>
 
-  <script src="js/nav.js"></script>
-  <script src="js/cube.js"></script>
+  <section class="card section">
+    <h2>Subsystem Descriptions</h2>
+  </section>
+
+  <section class="card section">
+    <h2>Subsystem Interactions</h2>
+  </section>
+
+  <div class="footer">PIE Final · System</div>
+</main>
+
+<script src="js/nav.js"></script>
+<script src="js/cube.js"></script>
 </body>
 </html>
