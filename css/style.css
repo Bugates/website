@@ -11,12 +11,17 @@
 
   --black:#000000;
   --border:#d6dbe3;
+  --borderSoft:#e9edf3;
 
   --max:1100px;
-  --navH:64px;
+  --navH:68px;
 
-  /* cube + heading scale */
   --cubeSize:150px;
+  --headingScale:0.7;
+
+  --radius:14px;
+  --shadowSoft:0 6px 20px rgba(0,0,0,.06);
+  --shadowHover:0 10px 30px rgba(0,0,0,.10);
 }
 
 /* ---------- RESET ---------- */
@@ -24,7 +29,9 @@
 html,body{margin:0;padding:0}
 body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background:var(--bg);
+  background:
+    radial-gradient(1200px 600px at 50% -200px, rgba(0,81,186,.06), transparent 70%),
+    var(--bg);
   color:var(--ink);
 }
 
@@ -35,30 +42,24 @@ body{
 }
 
 .hero{
-  padding:32px 0 16px;
+  padding:40px 0 20px;
 }
 
 main{
-  padding-bottom:60px;
+  padding-bottom:70px;
 }
 
-/* ---------- NAV (POLISHED FIXED BAR) ---------- */
+/* ---------- NAV (POLISHED, FRIENDLY) ---------- */
 .topbar{
   position:sticky;
   top:0;
   z-index:100;
   height:var(--navH);
 
-  background:linear-gradient(
-    to bottom,
-    #ffe97a 0%,
-    #ffd500 100%
-  );
+  background:rgba(255,255,255,.85);
+  backdrop-filter:saturate(1.2) blur(8px);
 
-  border-bottom:1px solid #e0b800;
-  box-shadow:
-    0 2px 6px rgba(0,0,0,.08),
-    0 1px 0 rgba(255,255,255,.6) inset;
+  border-bottom:1px solid var(--borderSoft);
 }
 
 .navwrap{
@@ -69,76 +70,85 @@ main{
 }
 
 .brand{
-  font-weight:900;
+  font-weight:800;
   letter-spacing:.06em;
-  font-size:14px;
+  font-size:13px;
 }
 
 .navlinks{
   display:flex;
-  gap:8px;
+  gap:6px;
 }
 
 .navlinks a{
   padding:8px 14px;
   font-size:13px;
   font-weight:600;
-  color:#1a1a1a;
+  color:var(--ink);
   border-radius:999px;
   text-decoration:none;
 
   transition:
-    background .15s ease,
-    box-shadow .15s ease,
-    color .15s ease;
+    background .2s ease,
+    color .2s ease,
+    transform .15s ease;
 }
 
 .navlinks a:hover{
-  background:rgba(0,0,0,.08);
+  background:#f2f5f9;
+  transform:translateY(-1px);
 }
 
 .navlinks a.active{
   background:#000;
   color:#fff;
-  box-shadow:0 1px 2px rgba(0,0,0,.25);
 }
 
 /* ---------- CARDS ---------- */
 .card{
   background:#fff;
-  border:1px solid var(--border);
-  border-radius:12px;
+  border:1px solid var(--borderSoft);
+  border-radius:var(--radius);
+  box-shadow:var(--shadowSoft);
+
+  transition:
+    box-shadow .25s ease,
+    transform .25s ease;
+}
+
+.card:hover{
+  box-shadow:var(--shadowHover);
 }
 
 .headerCard{
-  padding:20px;
+  padding:22px;
 }
 
-/* ---------- HERO HEADING ---------- */
+/* ---------- HERO HEADING ROW ---------- */
 .headingRow{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:32px;
-  margin-top:40px;
-  margin-bottom:32px;
+  gap:36px;
+  margin-top:30px;
+  margin-bottom:34px;
 }
 
-/* text matches cube height */
+/* Heading matches cube rhythm */
 .pageHeading{
-  font-size:var(--cubeSize);
-  line-height:1;
+  font-size:calc(var(--cubeSize) * var(--headingScale));
+  line-height:0.95;
   font-weight:800;
-  letter-spacing:.04em;
+  letter-spacing:.06em;
   margin:0;
 
   opacity:0;
-  transform:translateX(-12px);
+  transform:translateX(-14px);
 }
 
 /* triggered by JS */
 .pageHeading.text-reveal{
-  animation:textIn .45s ease-out forwards;
+  animation:textIn .55s cubic-bezier(.22,1,.36,1) forwards;
 }
 
 @keyframes textIn{
@@ -150,35 +160,42 @@ main{
 
 /* ---------- SECTIONS ---------- */
 .section{
-  padding:20px;
-  margin-top:16px;
+  padding:22px;
+  margin-top:18px;
 }
 
 .section h2{
-  margin:0 0 10px 0;
+  margin:0 0 12px 0;
+  font-size:18px;
+}
+
+.section p,
+.section li{
+  color:var(--muted);
+  line-height:1.6;
 }
 
 /* ---------- FOOTER ---------- */
 .footer{
-  margin-top:40px;
-  padding-top:12px;
-  border-top:1px solid var(--border);
+  margin-top:44px;
+  padding-top:14px;
+  border-top:1px solid var(--borderSoft);
   font-size:12px;
   color:var(--muted);
 }
 
 /* ---------- CUBE ---------- */
 .cubeWrap{
-  width:calc(var(--cubeSize) + 30px);
-  height:calc(var(--cubeSize) + 30px);
-  perspective:1200px;
+  width:calc(var(--cubeSize) + 36px);
+  height:calc(var(--cubeSize) + 36px);
+  perspective:1400px;
 }
 
 .cube{
   width:var(--cubeSize);
   height:var(--cubeSize);
   transform-style:preserve-3d;
-  transform: rotateX(-22deg) rotateY(30deg);
+  transform: rotateX(-24deg) rotateY(30deg);
 }
 
 .cube.spin{
@@ -187,13 +204,14 @@ main{
 
 @keyframes spin{
   from{
-    transform:rotateX(-22deg) rotateY(30deg);
+    transform:rotateX(-24deg) rotateY(30deg);
   }
   to{
-    transform:rotateX(-22deg) rotateY(390deg);
+    transform:rotateX(-24deg) rotateY(390deg);
   }
 }
 
+/* cube faces */
 .face{
   position:absolute;
   width:var(--cubeSize);
@@ -203,38 +221,27 @@ main{
   grid-template-rows:repeat(5,1fr);
   gap:2px;
   padding:6px;
-  background:#000; /* black plastic */
+
+  background:#000;
+  border-radius:6px;
 }
 
 .sticker{
   border-radius:3px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
 }
 
 /* cube geometry */
-.face.front{
-  transform:translateZ(calc(var(--cubeSize)/2));
-}
-.face.back{
-  transform:rotateY(180deg) translateZ(calc(var(--cubeSize)/2));
-}
-.face.right{
-  transform:rotateY(90deg) translateZ(calc(var(--cubeSize)/2));
-}
-.face.left{
-  transform:rotateY(-90deg) translateZ(calc(var(--cubeSize)/2));
-}
-.face.top{
-  transform:rotateX(90deg) translateZ(calc(var(--cubeSize)/2));
-}
-.face.bottom{
-  transform:rotateX(-90deg) translateZ(calc(var(--cubeSize)/2));
-}
+.face.front{transform:translateZ(calc(var(--cubeSize)/2))}
+.face.back{transform:rotateY(180deg) translateZ(calc(var(--cubeSize)/2))}
+.face.right{transform:rotateY(90deg) translateZ(calc(var(--cubeSize)/2))}
+.face.left{transform:rotateY(-90deg) translateZ(calc(var(--cubeSize)/2))}
+.face.top{transform:rotateX(90deg) translateZ(calc(var(--cubeSize)/2))}
+.face.bottom{transform:rotateX(-90deg) translateZ(calc(var(--cubeSize)/2))}
 
 /* ---------- ACCESSIBILITY ---------- */
 @media (prefers-reduced-motion: reduce){
-  .cube.spin{
-    animation:none;
-  }
+  .cube.spin{animation:none}
   .pageHeading{
     opacity:1;
     transform:none;
