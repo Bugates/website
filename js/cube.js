@@ -2,6 +2,7 @@
   const mount = document.getElementById("cubeMount");
   if (!mount) return;
 
+  const heading = document.querySelector(".pageHeading");
   const letter = (document.body.dataset.letter || "O").toUpperCase();
 
   const COLORS = {
@@ -73,8 +74,8 @@
       s.className = "sticker";
       if(pattern){
         s.style.background = pattern[i]
-          ? COLORS.blue    /* letter */
-          : COLORS.white;  /* background */
+          ? COLORS.blue
+          : COLORS.white;
       }else{
         s.style.background = color;
       }
@@ -102,8 +103,13 @@
   wrap.appendChild(cube);
   mount.appendChild(wrap);
 
+  /* run animation */
   requestAnimationFrame(()=>{
-    cube.classList.add("animate");
-    setTimeout(()=>cube.classList.remove("animate"),1100);
+    cube.classList.add("spin");
   });
+
+  cube.addEventListener("animationend", ()=>{
+    if (heading) heading.classList.add("text-reveal");
+  }, { once:true });
+
 })();
