@@ -1,79 +1,86 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PIE Final Website — Budget</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mechanical</title>
+  <link rel="stylesheet" href="css/style.css?v=FINAL">
 </head>
+
 <body data-letter="B">
-  <header class="topbar">
-    <div class="container navwrap" data-nav>
-      <div class="brand"><span class="dot"></span><span>PIE Final — Rubik’s Cube Inspired Site</span></div>
-      <nav class="navlinks">
-        <a href="index.html">Overview</a>
-        <a href="system.html">System</a>
-        <a href="flow.html">Flow</a>
-        <a href="electrical.html">Electrical</a>
-        <a href="mechanical.html">Mechanical</a>
-        <a href="software.html">Software</a>
-        <a href="process.html">Process</a>
-        <a href="budget.html">Budget</a>
-      </nav>
-    </div>
-  </header>
 
-  <div class="container hero">
-    <div class="card headerCard">
-      <div class="hgroup">
-        <h1>Bill of Materials</h1>
-        <p>Human-written note: include everything, even “free” items with estimated cost.</p>
-      </div>
-      <div class="badges"><span class="badge">$250 Budget</span><span class="badge">BOM</span></div>
-    </div>
-
-    <div class="cubeStage card"><div id="cubeMount"></div></div>
+<header class="topbar">
+  <div class="container navwrap">
+    <div class="brand">PIE Final</div>
+    <nav class="navlinks">
+      <a href="index.html">Overview</a>
+      <a href="system.html">System</a>
+      <a href="flow.html">Flow</a>
+      <a href="electrical.html">Electrical</a>
+      <a class="active" href="mechanical.html">Mechanical</a>
+      <a href="software.html">Software</a>
+      <a href="process.html">Process</a>
+      <a href="budget.html">Budget</a>
+    </nav>
   </div>
+</header>
 
-  <main class="container">
+<div class="container hero">
+  <div class="card headerCard">
+
+    <!-- ONE-LINE HEADING -->
+    <div class="headingRow">
+      <div class="cubeInline">
+        <div id="cubeMount"></div>
+      </div>
+      <h1 class="pageHeading">UDGET</h1>
+    </div>
+
+    <p class="subtitle">
+      Human-written overview of the mechanical design, constraints,
+      trade-offs, and rationale behind the final system.
+    </p>
+
+  </div>
+</div>
+
+<main class="container">
+
+  <div class="grid">
     <section class="card section">
-      <h2>Bill of Materials</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Qty</th>
-            <th>Unit Cost</th>
-            <th>Total</th>
-            <th>Source / Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Example component</td>
-            <td>1</td>
-            <td>$0.00</td>
-            <td>$0.00</td>
-            <td>Free (estimated cost: $X.XX) — human written</td>
-          </tr>
-          <tr>
-            <td>Replace rows with your BOM</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-          </tr>
-        </tbody>
-      </table>
-      <p style="margin-top:10px;">
-        Human-written total cost: $____. Include explanation if over/under and what you’d change.
+      <h2>Mechanical Design Overview</h2>
+      <p>
+        Human-written description of the mechanical system, its goals,
+        constraints, and how it supports the overall project.
       </p>
     </section>
 
-    <div class="footer container">Human-written footer.</div>
-  </main>
+    <section class="card section">
+      <h2>CAD & Prototypes</h2>
+      <div class="media">
+        <div class="ph">assets/cad/render1.png</div>
+        <div class="ph">assets/images/prototype.jpg</div>
+      </div>
+    </section>
+  </div>
 
-  <script src="js/nav.js"></script>
-  <script src="js/cube.js"></script>
+  <section class="card section" style="margin-top:16px;">
+    <h2>Mechanical Analysis & Trade-offs</h2>
+    <ul>
+      <li>Materials chosen and justification (human written)</li>
+      <li>Tolerances, fit issues, and adjustments (human written)</li>
+      <li>Failure modes and redesigns (human written)</li>
+      <li>Trade-offs: cost, manufacturability, familiarity (human written)</li>
+    </ul>
+  </section>
+
+  <div class="footer">
+    PIE Final · Mechanical · 2025
+  </div>
+
+</main>
+
+<script src="js/nav.js"></script>
+<script src="js/cube.js"></script>
 </body>
 </html>
