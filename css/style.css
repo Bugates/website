@@ -1,13 +1,12 @@
 :root{
-  /* ---------- Light research palette ---------- */
   --bg:#ffffff;
   --panel:#ffffff;
-  --panel-soft:#f9fafb;
+  --panel-soft:#f8fafc;
   --ink:#111827;
   --muted:#4b5563;
-  --line:#e5e7eb;
+  --line:#000000;
 
-  --accent:#2563eb;   /* academic blue */
+  --accent:#2563eb;
 
   --max:1100px;
   --navH:64px;
@@ -25,10 +24,7 @@ body{
   line-height:1.6;
 }
 
-a{
-  color:var(--accent);
-  text-decoration:none;
-}
+a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 
 .container{
@@ -43,8 +39,8 @@ a:hover{text-decoration:underline}
   top:0;
   z-index:50;
   height:var(--navH);
-  background:#ffffff;
-  border-bottom:1px solid var(--line);
+  background:#fff;
+  border-bottom:1px solid #e5e7eb;
 }
 
 .navwrap{
@@ -52,33 +48,16 @@ a:hover{text-decoration:underline}
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:16px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:700;
-}
-
-.brand .dot{
-  width:10px;
-  height:10px;
-  background:var(--accent);
-  border-radius:2px;
 }
 
 .navlinks{
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+  gap:14px;
 }
 
 .navlinks a{
   font-size:14px;
   color:var(--muted);
-  padding:6px 8px;
   border-bottom:2px solid transparent;
 }
 
@@ -88,40 +67,30 @@ a:hover{text-decoration:underline}
   font-weight:600;
 }
 
-/* ---------- HERO / HEADER ---------- */
+/* ---------- HEADER ---------- */
 
-.hero{
-  padding:28px 0 16px;
-}
+.hero{padding:28px 0 18px}
 
 .card{
   background:var(--panel);
-  border:1px solid var(--line);
+  border:1px solid #e5e7eb;
   border-radius:var(--radius);
 }
 
 .headerCard{
-  padding:22px;
+  padding:24px;
 }
 
 .headingRow{
   display:flex;
   align-items:center;
-  gap:22px;
-}
-
-.cubeHolder{
-  flex:0 0 auto;
-}
-
-.titleBlock{
-  flex:1;
+  gap:28px;
 }
 
 .pageHeading{
   margin:0;
   font-size:36px;
-  letter-spacing:.14em;
+  letter-spacing:.18em;
   font-weight:700;
 }
 
@@ -131,29 +100,9 @@ a:hover{text-decoration:underline}
   color:var(--muted);
 }
 
-/* ---------- BADGES ---------- */
+/* ---------- CONTENT ---------- */
 
-.badges{
-  margin-top:14px;
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.badge{
-  font-size:12px;
-  padding:4px 10px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:var(--panel-soft);
-  color:var(--muted);
-}
-
-/* ---------- MAIN CONTENT ---------- */
-
-main{
-  padding-bottom:40px;
-}
+main{padding-bottom:40px}
 
 .grid{
   display:grid;
@@ -165,25 +114,9 @@ main{
   .grid{grid-template-columns:1fr}
 }
 
-.section{
-  padding:18px;
-}
-
-.section h2{
-  margin:0 0 10px 0;
-  font-size:20px;
-}
-
-.section p,
-.section li{
-  color:var(--muted);
-}
-
-.section ul{
-  margin:8px 0 0 20px;
-}
-
-/* ---------- MEDIA ---------- */
+.section{padding:18px}
+.section h2{margin:0 0 10px;font-size:20px}
+.section p,.section li{color:var(--muted)}
 
 .media{
   display:grid;
@@ -196,12 +129,11 @@ main{
 }
 
 .ph{
-  border:1px dashed var(--line);
+  border:1px dashed #9ca3af;
   padding:14px;
-  color:var(--muted);
-  text-align:center;
+  color:#6b7280;
   border-radius:10px;
-  background:#ffffff;
+  text-align:center;
 }
 
 /* ---------- FOOTER ---------- */
@@ -209,38 +141,31 @@ main{
 .footer{
   margin-top:22px;
   padding-top:14px;
-  border-top:1px solid var(--line);
+  border-top:1px solid #e5e7eb;
   font-size:13px;
-  color:var(--muted);
+  color:#6b7280;
 }
 
 /* ======================================================
-   CUBE — LIGHT, NEUTRAL, NON-DARK
+   RUBIK'S CUBE (REALISTIC GRID, BLUE LETTER)
    ====================================================== */
 
-.cubeWidget{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-
 .cubeWrap{
-  width:140px;
-  height:140px;
-  perspective:800px;
+  width:150px;
+  height:150px;
+  perspective:900px;
 }
 
 .cube{
-  width:110px;
-  height:110px;
+  width:120px;
+  height:120px;
   position:relative;
   transform-style:preserve-3d;
-  margin:14px;
   transform:rotateX(-18deg) rotateY(28deg);
 }
 
-.cube.spinning{
-  animation:spin .9s ease-in-out;
+.cube.spin{
+  animation:spin 1s ease-in-out;
 }
 
 @keyframes spin{
@@ -250,31 +175,24 @@ main{
 
 .face{
   position:absolute;
-  width:110px;
-  height:110px;
+  width:120px;
+  height:120px;
   display:grid;
   grid-template-columns:repeat(5,1fr);
   grid-template-rows:repeat(5,1fr);
-  gap:2px;
+  gap:4px;
   padding:6px;
-  background:#ffffff;              /* NO DARK */
-  border:1px solid var(--line);    /* light outline */
+  background:#000;               /* cube plastic */
 }
 
 .sticker{
-  background:#f3f4f6;              /* light sticker */
-  border:1px solid #d1d5db;
-  border-radius:4px;
+  background:#ffffff;            /* base */
+  border:2px solid #000;         /* black grid */
 }
 
-/* cube faces positioning */
-.face.front{transform:translateZ(55px)}
-.face.back{transform:rotateY(180deg) translateZ(55px)}
-.face.right{transform:rotateY(90deg) translateZ(55px)}
-.face.left{transform:rotateY(-90deg) translateZ(55px)}
-.face.top{transform:rotateX(90deg) translateZ(55px)}
-.face.bottom{transform:rotateX(-90deg) translateZ(55px)}
-
-@media (prefers-reduced-motion: reduce){
-  .cube.spinning{animation:none}
-}
+.face.front{transform:translateZ(60px)}
+.face.back{transform:rotateY(180deg) translateZ(60px)}
+.face.right{transform:rotateY(90deg) translateZ(60px)}
+.face.left{transform:rotateY(-90deg) translateZ(60px)}
+.face.top{transform:rotateX(90deg) translateZ(60px)}
+.face.bottom{transform:rotateX(-90deg) translateZ(60px)}

@@ -1,106 +1,64 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>PIE Final Website — Overview</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PIE Final — Mechanical</title>
+  <link rel="stylesheet" href="css/style.css?v=FINAL">
 </head>
 
-<body data-letter="O">
+<body data-letter="M">
+<header class="topbar">
+  <div class="container navwrap" data-nav>
+    <strong>PIE Final</strong>
+    <nav class="navlinks">
+      <a class="active" href="index.html">Mechanical</a>
+      <a href="system.html">System</a>
+      <a href="flow.html">Flow</a>
+      <a href="electrical.html">Electrical</a>
+      <a href="software.html">Software</a>
+      <a href="process.html">Process</a>
+      <a href="budget.html">Budget</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- ================= NAV ================= -->
-  <header class="topbar">
-    <div class="container navwrap" data-nav>
-      <div class="brand">
-        <span class="dot"></span>
-        <span>PIE Final Project Documentation</span>
+<div class="container hero">
+  <div class="card headerCard">
+    <div class="headingRow">
+      <div id="cubeMount"></div>
+      <div>
+        <h1 class="pageHeading">MECHANICAL</h1>
+        <p class="subtitle">
+          Human-written overview of the mechanical design, constraints,
+          and final trade-offs.
+        </p>
       </div>
-      <nav class="navlinks">
-        <a href="index.html">Overview</a>
-        <a href="system.html">System</a>
-        <a href="flow.html">Flow</a>
-        <a href="electrical.html">Electrical</a>
-        <a href="mechanical.html">Mechanical</a>
-        <a href="software.html">Software</a>
-        <a href="process.html">Process</a>
-        <a href="budget.html">Budget</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ================= HERO ================= -->
-  <div class="container hero">
-    <div class="card headerCard">
-
-      <!-- cube + heading -->
-      <div class="headingRow">
-        <div class="cubeHolder">
-          <div id="cubeMount"></div>
-        </div>
-
-        <div class="titleBlock">
-          <h1 class="pageHeading">
-            <span class="rest">VERVIEW</span>
-          </h1>
-          <p class="subtitle">
-            Replace this paragraph with a human-written summary of your project’s objectives.
-            Keep it short and clear (3–6 sentences).
-          </p>
-        </div>
-      </div>
-
-      <div class="badges">
-        <span class="badge">Multi-page</span>
-        <span class="badge">Fixed Navigation</span>
-        <span class="badge">5×5 Cube Indicator</span>
-      </div>
-
     </div>
   </div>
+</div>
 
-  <!-- ================= MAIN ================= -->
-  <main class="container">
-
-    <div class="grid">
-      <section class="card section">
-        <h2>Project Objectives</h2>
-        <p>Write your high-level objectives here (human written).</p>
-        <ul>
-          <li>Objective 1 (human written)</li>
-          <li>Objective 2 (human written)</li>
-          <li>Objective 3 (human written)</li>
-        </ul>
-      </section>
-
-      <section class="card section">
-        <h2>Final System in Action</h2>
-        <div class="media">
-          <div class="ph">Image: <code>assets/images/…</code></div>
-          <div class="ph">Video: <code>assets/videos/…</code></div>
-        </div>
-        <p>
-          If the final system cannot perform actions now, describe the last integrated prototype,
-          what worked, and what you suspect prevented further demos (human written).
-        </p>
-      </section>
-    </div>
-
-    <section class="card section" style="margin-top:16px;">
-      <h2>How to Use This Site</h2>
-      <p>
-        The navigation bar is always available.  
-        The Rubik’s cube indicates the current section by forming the first letter of the page title.
-      </p>
+<main class="container">
+  <div class="grid">
+    <section class="card section">
+      <h2>Mechanical Design</h2>
+      <p>Human-written description.</p>
     </section>
 
-    <footer class="footer">
-      Human-written footer text. Include team members, course, institution, and date.
-    </footer>
+    <section class="card section">
+      <h2>CAD & Prototypes</h2>
+      <div class="media">
+        <div class="ph">assets/cad/...</div>
+        <div class="ph">assets/images/...</div>
+      </div>
+    </section>
+  </div>
 
-  </main>
+  <div class="footer">
+    PIE Final · Mechanical · 2025
+  </div>
+</main>
 
-  <script src="js/nav.js"></script>
-  <script src="js/cube.js"></script>
+<script src="js/cube.js"></script>
 </body>
 </html>

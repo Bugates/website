@@ -1,110 +1,43 @@
 (function(){
-  const letter = (document.body.getAttribute("data-letter") || "O").toUpperCase();
+  const letter = (document.body.dataset.letter || "M").toUpperCase();
   const mount = document.getElementById("cubeMount");
   if(!mount) return;
 
   const COLORS = {
-    w:"#f5f5f5",
-    y:"#ffd500",
-    r:"#c41e3a",
-    o:"#ff5800",
-    b:"#0051ba",
-    g:"#009e60",
-    k:"#111"
-  };
-
-  const FACE = {
-    front:"b",
-    back:"g",
-    right:"r",
-    left:"o",
-    top:"w",
-    bottom:"y"
+    base: "#ffffff",
+    letter: "#2563eb"
   };
 
   const LETTERS = {
-    O:[
-      "w","w","w","w","w",
-      "w","k","k","k","w",
-      "w","k","k","k","w",
-      "w","k","k","k","w",
-      "w","w","w","w","w"
-    ],
-    S:[
-      "w","w","w","w","w",
-      "w","k","k","k","k",
-      "w","w","w","w","w",
-      "k","k","k","k","w",
-      "w","w","w","w","w"
-    ],
-    F:[
-      "w","w","w","w","w",
-      "w","k","k","k","k",
-      "w","w","w","w","k",
-      "w","k","k","k","k",
-      "w","k","k","k","k"
-    ],
-    E:[
-      "w","w","w","w","w",
-      "w","k","k","k","k",
-      "w","w","w","w","k",
-      "w","k","k","k","k",
-      "w","w","w","w","w"
-    ],
     M:[
-      "w","k","k","k","w",
-      "w","w","k","w","w",
-      "w","k","w","k","w",
-      "w","k","k","k","w",
-      "w","k","k","k","w"
-    ],
-    P:[
-      "w","w","w","w","k",
-      "w","k","k","k","w",
-      "w","w","w","w","k",
-      "w","k","k","k","k",
-      "w","k","k","k","k"
-    ],
-    B:[
-      "w","w","w","w","k",
-      "w","k","k","k","w",
-      "w","w","w","w","k",
-      "w","k","k","k","w",
-      "w","w","w","w","k"
+      1,0,0,0,1,
+      1,1,0,1,1,
+      1,0,1,0,1,
+      1,0,0,0,1,
+      1,0,0,0,1
     ]
   };
 
-  const L = LETTERS[letter] ? letter : "O";
+  function el(tag, cls){
+    const e=document.createElement(tag);
+    if(cls) e.className=cls;
+    return e;
+  }
 
-  function face(){
-    const f=document.createElement("div");
-    f.className="face";
+  function face(pattern){
+    const f=el("div","face");
     for(let i=0;i<25;i++){
-      const s=document.createElement("div");
-      s.className="sticker";
+      const s=el("div","sticker");
+      if(pattern && pattern[i]) s.style.background=COLORS.letter;
       f.appendChild(s);
     }
     return f;
   }
 
-  function fill(f,color){
-    [...f.children].forEach(s=>s.style.background=COLORS[color]);
-  }
-
-  function fillPattern(f,base,pattern){
-    [...f.children].forEach((s,i)=>{
-      s.style.background = pattern[i]==="w" ? COLORS.w : COLORS[base];
-    });
-  }
-
-  const wrap=document.createElement("div");
-  wrap.className="cubeWrap";
-  const cube=document.createElement("div");
-  cube.className="cube spin";
-  wrap.appendChild(cube);
+  const cube=el("div","cube spin");
 
   const faces={
-    front:face(),
+    front:face(LETTERS[letter]),
     back:face(),
     right:face(),
     left:face(),
@@ -112,16 +45,12 @@
     bottom:face()
   };
 
-  Object.entries(faces).forEach(([k,f])=>{
-    f.classList.add(k);
-    cube.appendChild(f);
-    fill(f,FACE[k]);
+  Object.entries(faces).forEach(([k,v])=>{
+    v.classList.add(k);
+    cube.appendChild(v);
   });
 
-  setTimeout(()=>{
-    fillPattern(faces.front, FACE.front, LETTERS[L]);
-    cube.classList.remove("spin");
-  },700);
-
+  const wrap=el("div","cubeWrap");
+  wrap.appendChild(cube);
   mount.appendChild(wrap);
 })();
