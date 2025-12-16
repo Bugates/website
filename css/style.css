@@ -34,17 +34,31 @@ body{
   margin:0 auto;
 }
 
-.hero{padding:28px 0}
-main{padding-bottom:60px}
+.hero{
+  padding:32px 0 16px;
+}
 
-/* ---------- NAV ---------- */
+main{
+  padding-bottom:60px;
+}
+
+/* ---------- NAV (POLISHED FIXED BAR) ---------- */
 .topbar{
   position:sticky;
   top:0;
-  z-index:50;
+  z-index:100;
   height:var(--navH);
-  background:var(--yellow);
-  border-bottom:2px solid #e0b800;
+
+  background:linear-gradient(
+    to bottom,
+    #ffe97a 0%,
+    #ffd500 100%
+  );
+
+  border-bottom:1px solid #e0b800;
+  box-shadow:
+    0 2px 6px rgba(0,0,0,.08),
+    0 1px 0 rgba(255,255,255,.6) inset;
 }
 
 .navwrap{
@@ -55,27 +69,38 @@ main{padding-bottom:60px}
 }
 
 .brand{
-  font-weight:800;
-  letter-spacing:.04em;
+  font-weight:900;
+  letter-spacing:.06em;
+  font-size:14px;
 }
 
 .navlinks{
   display:flex;
-  gap:6px;
+  gap:8px;
 }
 
 .navlinks a{
-  padding:8px 12px;
+  padding:8px 14px;
   font-size:13px;
-  color:#000;
-  border-radius:6px;
+  font-weight:600;
+  color:#1a1a1a;
+  border-radius:999px;
   text-decoration:none;
+
+  transition:
+    background .15s ease,
+    box-shadow .15s ease,
+    color .15s ease;
 }
 
-.navlinks a.active,
 .navlinks a:hover{
+  background:rgba(0,0,0,.08);
+}
+
+.navlinks a.active{
   background:#000;
   color:#fff;
+  box-shadow:0 1px 2px rgba(0,0,0,.25);
 }
 
 /* ---------- CARDS ---------- */
@@ -85,17 +110,21 @@ main{padding-bottom:60px}
   border-radius:12px;
 }
 
-.headerCard{padding:20px}
+.headerCard{
+  padding:20px;
+}
 
-/* ---------- HEADING ROW ---------- */
+/* ---------- HERO HEADING ---------- */
 .headingRow{
   display:flex;
   align-items:center;
   justify-content:center;
   gap:32px;
+  margin-top:40px;
+  margin-bottom:32px;
 }
 
-/* Text matches cube height */
+/* text matches cube height */
 .pageHeading{
   font-size:var(--cubeSize);
   line-height:1;
@@ -139,7 +168,6 @@ main{padding-bottom:60px}
 }
 
 /* ---------- CUBE ---------- */
-
 .cubeWrap{
   width:calc(var(--cubeSize) + 30px);
   height:calc(var(--cubeSize) + 30px);
@@ -158,8 +186,12 @@ main{padding-bottom:60px}
 }
 
 @keyframes spin{
-  from{transform:rotateX(-22deg) rotateY(30deg)}
-  to{transform:rotateX(-22deg) rotateY(390deg)}
+  from{
+    transform:rotateX(-22deg) rotateY(30deg);
+  }
+  to{
+    transform:rotateX(-22deg) rotateY(390deg);
+  }
 }
 
 .face{
@@ -171,24 +203,38 @@ main{padding-bottom:60px}
   grid-template-rows:repeat(5,1fr);
   gap:2px;
   padding:6px;
-  background:#000;
+  background:#000; /* black plastic */
 }
 
 .sticker{
   border-radius:3px;
 }
 
-/* geometry */
-.face.front{transform:translateZ(calc(var(--cubeSize)/2))}
-.face.back{transform:rotateY(180deg) translateZ(calc(var(--cubeSize)/2))}
-.face.right{transform:rotateY(90deg) translateZ(calc(var(--cubeSize)/2))}
-.face.left{transform:rotateY(-90deg) translateZ(calc(var(--cubeSize)/2))}
-.face.top{transform:rotateX(90deg) translateZ(calc(var(--cubeSize)/2))}
-.face.bottom{transform:rotateX(-90deg) translateZ(calc(var(--cubeSize)/2))}
+/* cube geometry */
+.face.front{
+  transform:translateZ(calc(var(--cubeSize)/2));
+}
+.face.back{
+  transform:rotateY(180deg) translateZ(calc(var(--cubeSize)/2));
+}
+.face.right{
+  transform:rotateY(90deg) translateZ(calc(var(--cubeSize)/2));
+}
+.face.left{
+  transform:rotateY(-90deg) translateZ(calc(var(--cubeSize)/2));
+}
+.face.top{
+  transform:rotateX(90deg) translateZ(calc(var(--cubeSize)/2));
+}
+.face.bottom{
+  transform:rotateX(-90deg) translateZ(calc(var(--cubeSize)/2));
+}
 
 /* ---------- ACCESSIBILITY ---------- */
 @media (prefers-reduced-motion: reduce){
-  .cube.spin{animation:none}
+  .cube.spin{
+    animation:none;
+  }
   .pageHeading{
     opacity:1;
     transform:none;
