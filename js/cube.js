@@ -1,9 +1,18 @@
 (function(){
-  const letter = (document.body.dataset.letter || "O").toUpperCase();
   const mount = document.getElementById("cubeMount");
-  if(!mount) return;
+  if (!mount) return;
 
-  const BLUE = "#2563eb";
+  const letter = (document.body.dataset.letter || "O").toUpperCase();
+
+  const COLORS = {
+    blue:"#0051ba",
+    red:"#c41e3a",
+    orange:"#ff5800",
+    yellow:"#ffd500",
+    green:"#009e60",
+    white:"#ffffff",
+    black:"#000000"
+  };
 
   const LETTERS = {
     O:[
@@ -11,6 +20,20 @@
       1,0,0,0,1,
       1,0,0,0,1,
       1,0,0,0,1,
+      1,1,1,1,1
+    ],
+    M:[
+      1,0,0,0,1,
+      1,1,0,1,1,
+      1,0,1,0,1,
+      1,0,0,0,1,
+      1,0,0,0,1
+    ],
+    E:[
+      1,1,1,1,1,
+      1,0,0,0,0,
+      1,1,1,1,0,
+      1,0,0,0,0,
       1,1,1,1,1
     ],
     S:[
@@ -27,19 +50,12 @@
       1,0,0,0,0,
       1,0,0,0,0
     ],
-    E:[
-      1,1,1,1,1,
-      1,0,0,0,0,
+    B:[
       1,1,1,1,0,
-      1,0,0,0,0,
-      1,1,1,1,1
-    ],
-    M:[
       1,0,0,0,1,
-      1,1,0,1,1,
-      1,0,1,0,1,
+      1,1,1,1,0,
       1,0,0,0,1,
-      1,0,0,0,1
+      1,1,1,1,0
     ],
     P:[
       1,1,1,1,0,
@@ -47,44 +63,50 @@
       1,1,1,1,0,
       1,0,0,0,0,
       1,0,0,0,0
-    ],
-    B:[
-      1,1,1,1,0,
-      1,0,0,0,1,
-      1,1,1,1,0,
-      1,0,0,0,1,
-      1,1,1,1,0
     ]
   };
 
-  function el(t,c){const e=document.createElement(t);if(c)e.className=c;return e}
-
-  function face(pattern){
-    const f=el("div","face");
+  function buildFace(color, pattern){
+    const f = document.createElement("div");
+    f.className = "face";
     for(let i=0;i<25;i++){
-      const s=el("div","sticker");
-      if(pattern && pattern[i]) s.style.background=BLUE;
+      const s = document.createElement("div");
+      s.className = "sticker";
+      if(pattern){
+        s.style.background = pattern[i] ? COLORS.blue : COLORS.white;
+      }else{
+        s.style.background = color;
+      }
       f.appendChild(s);
     }
     return f;
   }
 
-  const cube=el("div","cube spin");
-  const faces={
-    front:face(LETTERS[letter]),
-    back:face(),
-    right:face(),
-    left:face(),
-    top:face(),
-    bottom:face()
-  };
+  const cube = document.createElement("div");
+  cube.className = "cube";
 
-  Object.entries(faces).forEach(([k,v])=>{
-    v.classList.add(k);
-    cube.appendChild(v);
-  });
+  const front = buildFace(COLORS.white, LETTERS[letter] || LETTERS.O);
+  front.classList.add("front");
 
-  const wrap=el("div","cubeWrap");
+  const back = buildFace(COLORS.yellow); back.classList.add("back");
+  const right = buildFace(COLORS.red); right.classList.add("right");
+  const left = buildFace(COLORS.orange); left.classList.add("left");
+  const top = buildFace(COLORS.blue); top.classList.add("top");
+  const bottom = buildFace(COLORS.green); bottom.classList.add("bottom");
+
+  cube.append(front,back,right,left,top,bottom);
+
+  const wrap = document.createElement("div");
+  wrap.className = "cubeWrap";
   wrap.appendChild(cube);
   mount.appendChild(wrap);
+
+  /* animation sequence */
+  requestAnimationFrame(()=>{
+    cube.classList.add("animate");
+    setTimeout(()=>{
+      cube.classList.remove("animate");
+    },1100);
+  });
+
 })();
