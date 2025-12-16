@@ -10,8 +10,7 @@
     orange:"#ff5800",
     yellow:"#ffd500",
     green:"#009e60",
-    white:"#ffffff",
-    black:"#000000"
+    white:"#ffffff"
   };
 
   const LETTERS = {
@@ -73,7 +72,9 @@
       const s = document.createElement("div");
       s.className = "sticker";
       if(pattern){
-        s.style.background = pattern[i] ? COLORS.blue : COLORS.white;
+        s.style.background = pattern[i]
+          ? COLORS.blue    /* letter */
+          : COLORS.white;  /* background */
       }else{
         s.style.background = color;
       }
@@ -88,25 +89,21 @@
   const front = buildFace(COLORS.white, LETTERS[letter] || LETTERS.O);
   front.classList.add("front");
 
-  const back = buildFace(COLORS.yellow); back.classList.add("back");
-  const right = buildFace(COLORS.red); right.classList.add("right");
-  const left = buildFace(COLORS.orange); left.classList.add("left");
-  const top = buildFace(COLORS.blue); top.classList.add("top");
-  const bottom = buildFace(COLORS.green); bottom.classList.add("bottom");
+  const back   = buildFace(COLORS.green);  back.classList.add("back");
+  const right  = buildFace(COLORS.red);    right.classList.add("right");
+  const left   = buildFace(COLORS.orange); left.classList.add("left");
+  const top    = buildFace(COLORS.yellow); top.classList.add("top");
+  const bottom = buildFace(COLORS.blue);   bottom.classList.add("bottom");
 
-  cube.append(front,back,right,left,top,bottom);
+  cube.append(front, back, right, left, top, bottom);
 
   const wrap = document.createElement("div");
   wrap.className = "cubeWrap";
   wrap.appendChild(cube);
   mount.appendChild(wrap);
 
-  /* animation sequence */
   requestAnimationFrame(()=>{
     cube.classList.add("animate");
-    setTimeout(()=>{
-      cube.classList.remove("animate");
-    },1100);
+    setTimeout(()=>cube.classList.remove("animate"),1100);
   });
-
 })();

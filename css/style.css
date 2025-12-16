@@ -1,7 +1,7 @@
 :root{
   --bg:#ffffff;
   --ink:#0b0f14;
-  --muted:#5f6b7a;
+  --muted:#4a5568;
 
   --blue:#0051ba;
   --red:#c41e3a;
@@ -32,17 +32,16 @@ body{
 }
 
 .hero{padding:28px 0}
-
 main{padding-bottom:60px}
 
-/* ---------- NAV ---------- */
+/* ---------- NAV (YELLOW TOP) ---------- */
 .topbar{
   position:sticky;
   top:0;
   z-index:50;
   height:var(--navH);
-  background:#fff;
-  border-bottom:1px solid var(--border);
+  background:var(--yellow);
+  border-bottom:2px solid #e0b800;
 }
 
 .navwrap{
@@ -53,8 +52,8 @@ main{padding-bottom:60px}
 }
 
 .brand{
-  font-weight:700;
-  letter-spacing:.02em;
+  font-weight:800;
+  letter-spacing:.04em;
 }
 
 .navlinks{
@@ -65,14 +64,14 @@ main{padding-bottom:60px}
 .navlinks a{
   padding:8px 12px;
   font-size:13px;
-  color:var(--muted);
+  color:#000;
   border-radius:6px;
   text-decoration:none;
 }
 
 .navlinks a.active,
 .navlinks a:hover{
-  background:var(--blue);
+  background:#000;
   color:#fff;
 }
 
@@ -151,16 +150,16 @@ main{padding-bottom:60px}
   display:grid;
   grid-template-columns:repeat(5,1fr);
   grid-template-rows:repeat(5,1fr);
-  gap:2px;                 /* thinner lines */
+  gap:2px;              /* thin sticker lines */
   padding:6px;
-  background:#000;
+  background:#000;      /* black plastic */
 }
 
 .sticker{
   border-radius:3px;
 }
 
-/* geometry */
+/* cube geometry */
 .face.front{transform:translateZ(75px)}
 .face.back{transform:rotateY(180deg) translateZ(75px)}
 .face.right{transform:rotateY(90deg) translateZ(75px)}
